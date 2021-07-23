@@ -1,0 +1,3 @@
+Install nginx using deployment
+
+Add service file

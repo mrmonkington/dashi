@@ -1,0 +1,20 @@
+  1 [Unit]
+  2 Description={{ django__app }} {{ django__service }}
+  3 After=syslog.target
+  4 
+  5 [Service]
+  6 User={{ django__user_name }}
+  7 Group={{ django__user_group }}
+  8 
+  9 ExecStart={{ django__wsgi_run_command }}
+ 10 
+ 11 #RuntimeDirectory={{ django__run_dir }}
+ 12 Restart=always
+ 13 KillSignal=SIGQUIT
+ 14 Type=notify
+ 15 StandardError=syslog
+ 16 NotifyAccess=all
+ 17 
+ 18 [Install]
+ 19 WantedBy=multi-user.target
+
